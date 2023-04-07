@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Carbon Emission Calculator</title>
+	<link rel="stylesheet" href="../CSS/adding.css">
+    <link rel="stylesheet" href="../CSS/animations.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="homepage.html"> MyFootprint</h1></a>
+        <nav>
+          <ul>
+            <li><a href="dash.html">Dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="manualadding.html">Emission calculator</a></li>
+          </ul>
+        </nav>
+      </header>
+	<main>
+		<section class="hero" style="background-image: url(../Images/Forestbg.jpeg); background-position: center;">
+			<h2>Carbon Emission Calculator</h2>
+			<p>Use this calculator to estimate the carbon emissions produced by using your phone to send emails.</p>
+			<form>
+                <div class="form-group">
+                    <label for="num-emails">Number of Emails Sent:</label>
+                    <input type="number" id="num-emails" name="num-emails" min="0" required>
+                </div>
+				<button type="button" onclick="calculateEmissions()">Calculate Emissions</button>
+			</form>
+			<p id="emissions"> </p>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 MyFootprint</p>
+	</footer>
+	<script>
+		function calculateEmissions() {
+			const numEmails = document.getElementById("num-emails").value;
+			const emissions = numEmails * 4;
+			document.getElementById("emissions").textContent = `Your carbon emissions for sending ${numEmails} emails is ${emissions}g CO2e.`;
+		}
+	</script>
+</body>
+</html>

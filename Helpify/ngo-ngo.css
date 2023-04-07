@@ -1,0 +1,210 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  
+  .navbar{
+    background-color: #ffffff;
+    height: 80px;
+    width: 100%;
+    top: 0px;
+    position: sticky;
+    z-index: 1;
+  }
+  
+    label.logo{
+      /*color:#05386B;*/
+      color: #000000;
+      font-size: 35px;
+      line-height: 80px;
+      margin: 10%;
+    }
+    nav ul{
+      float: right;
+      margin-right: 10%;
+    }
+    nav ul li{
+      display: inline-block;
+      line-height: 80px;
+      margin: 0 5px;
+    }
+    nav ul li a{
+      color: #394D55;
+      font-size: 17px;
+      font-family: karla;
+      padding: 7px 13px;
+      border-radius: 50px;
+    }
+  a.active,a:hover{
+    background: #3E7D98;
+    transition: 0.5s;
+    color: #fefefe;
+  }
+
+  .table-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #ccc;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    table-layout: fixed;
+    text-align: center;
+    width: 80%;
+    margin-top: 30px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    background-color: #394D55;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #394D55;
+  }
+  
+  .my-table {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit-btn {
+    background-color: #394D55;
+    color: white;
+    border-radius: 10px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #172e38;
+  }
+
+  .search-box {
+    width: 300px;
+    height: 40px;
+    margin-left: 600px;
+    margin-top: 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    background-color: #f2f2f2;
+  }
+  
+  .search-box:focus {
+    outline: none;
+    box-shadow: 0 0 3px 3px rgba(47, 139, 169, 0.2);
+  }
+  
+  .search-box::placeholder {
+    color: #999;
+    font-weight: normal;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    /*background-color: rgba(253, 244, 244, 0.405);*/
+    opacity: 0.01;
+  }
+
+  /*.kids {
+    background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(https://serudsindia.org/wp-content/uploads/2020/10/children-in-seruds-orphanage-kurnool.jpg);
+  }*/
+
+  .fa {
+    padding: 20px;
+    padding-top: 27px;
+    font-size: 30px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    border-radius: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-instagram {  
+    background: #125688;  
+    color: white; 
+  }
+  .fa-youtube {  
+    background: #bb0000;  
+    color: white;  
+  } 
+  .fa-linkedin {  
+    background: #007bb5;  
+    color: white;  
+  }
+  
+  .footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+    height: 150px;
+    font-family: "Inter", sans-serif;
+    font-size: large;
+  }

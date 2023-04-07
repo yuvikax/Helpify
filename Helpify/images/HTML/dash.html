@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="..CSS/dash.css"> <!--../CSS/-->
+  <link rel="stylesheet" href="../CSS/animations.css">
+  <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo"><a href="homepage.html"> MyFootprint</h1></a>
+    <nav>
+      <ul>
+        <li><a href="dash.html">Dashboard</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="aboutus.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>User Dashboard</h1>
+
+  <div class="container">
+    <div class="bar-chart">
+      <h2><br>Daily Carbon Footprint<br></h2>
+      <div class="chart-container" align="center">
+        <canvas id="carbonChart"></canvas>
+      </div>
+    </div>
+
+    <div class="pie-chart" align="center">
+      <h2><br>Daily Energy Usage</h2>
+      <div class="chart-container">
+        <canvas id="energyChart"></canvas>
+      </div>
+    </div>
+
+    <div class="recommendations">
+      <h2>Personalized Recommendations</h2>
+      <ul>
+        <li>Use LED light bulbs to save energy</li>
+        <li>Turn off lights and appliances when not in use</li>
+        <li>Take public transportation or carpool</li>
+        <li>Eat more plant-based meals</li>
+        <li>Use reusable bags, water bottles, and containers</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+		// Carbon footprint line chart data
+		var carbonData = {
+			labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+			datasets: [
+				{
+					label: "Your Carbon Footprint",
+					data: [3.4, 3.2, 2.8, 3.1, 3.3, 2.9, 2.7],
+					fill: false,
+					borderColor: "rgba(54, 162, 235, 1)",
+					lineTension: 0.1
+				},
+				{
+					label: "Average Carbon Footprint",
+					data: [3.1, 2.9, 2.9, 3.1, 3.1, 2.9, 3.0],
+					fill: true,
+					borderColor: "rgba(205,209,228,1)",
+					lineTension: 0.1
+				},
+                {
+                    label: "John's Carbon Footprint",
+                    data: [3.1,3.0,3.2,3.0,3.2,3.3,3.1],
+                    fill: false,
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    
+                    lineTension: 0.1
+                }
+			]
+		};
+
+		// Create carbon footprint line chart
+		var carbonChart = new Chart(document.getElementById("carbonChart"), {
+			type: 'line',
+			data: carbonData,
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
+			}
+		});
+
+// Energy usage pie chart data
+var energyData = {
+  labels: ["Electronics", "Cooling", "Lighting", "Appliances", "Other"],
+  datasets: [{
+    label: "Daily Energy Usage",
+    data: [20, 25, 15, 30, 10],
+    backgroundColor: [
+      '#73AF64',
+      '#B1D8B7',
+      '#76B947',
+      '#93C47D',
+      '#C4DCAE'
+    ],
+    borderColor: [
+      '#73AF64',
+      '#B1D8B7',
+      '#76B947',
+      '#93C47D',
+      '#C4DCAE'
+    ],
+    borderWidth: 1
+  }]
+};
+
+// Create energy usage pie chart
+var energyChart = new Chart(document.getElementById("energyChart"), {
+  type: 'pie',
+  data: energyData
+});
+</script>
+</body>
+</html>

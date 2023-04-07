@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpify!</title>
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <!--<link href="//db.onlinewebfonts.com/c/5c803199923a6ed48112bebbb486b3e0?family=Lora" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/750e3658d4460a397a551dfac26bb272?family=Karla" rel="stylesheet" type="text/css"/>-->
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+<div class="navbar">
+  <nav>
+    <label style="font-family: 'Times New Roman', Times, serif; font-size: 35px; margin: 10%; margin-top: 10px; font-weight: 200; color: black;">Helpify</label>
+    <ul>
+      <li><a class="active" href="homepage.html">About Us</a></li>
+      <li><a href="findngo.html">Find your NGO!</a></li>
+      <li><a href="ngo-ngo.html">NGO-NGO</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+      <li><a href="login+reg.html">Login</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+
+<div class="main_body">
+  
+
+  <!-- <img src="/images/kids.png" alt="kids" height="300px" width="400px" style="float:right; margin-right: 5px; border-radius: 10px;"> -->
+  <div class="p1">
+    <p style="text-align: center; font-family: Inter; font-weight: bold; color: white; font-size: 40px;" data-aos="fade-left">Partner with us in creating a positive change!</p1>
+    <p class="us" style="margin-top: 10px; text-align: center;" data-aos="fade-left">Helpify aims at bringing underpriveleged people voice out their needs on a bigger, better platform. There is a plethora of population 
+    residing in our country, deprived of fundamental amenities. We plan on moving toward helping people reach out to foster homes, donation drives.
+    Connecting you to the needy. Don't let your opportunity go to waste. Start today.</p>
+    <button type="button" class="register" onclick="on()" data-aos="fade-left">Register Now</button><!--onclick="location.href='login+reg.html'"-->
+    <div id="overlay-content" ng-app="myApp" ng-controller="formCtrl">
+      <h1 style="display:inline-block;margin-right:10px;">NGO Registration Form</h1>
+      <button class="close-button" onclick="off()" style="display:inline-block; background:transparent; border:none; float:right;">&times;</button>
+    
+      <form name="registrationForm" action='ngoregistration.php' method="post" ng-submit="submitForm(registrationForm.$valid)" novalidate>
+        <div class="form-row">
+          <label for="orgName">Organization Name</label>
+          <input type="text" id="orgName" name="orgName" ng-model="ngo.orgName" required>
+          <label for="type">Type of NGO</label>
+          <select id="type" name="type" ng-model="ngo.type" required>
+            <option value="" disabled selected>Please select an option</option>
+            <option value="Charity">Charity</option>
+            <option value="Non-profit">Non-profit</option>
+            <option value="Advocacy">Advocacy</option>
+            <option value="International">International</option>
+            <option value="Community-based">Community-based</option>
+            <option value="Research and Education">Research and Education</option>
+            <option value="Religious">Religious</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" ng-model="ngo.address" required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="contact">Contact Details</label>
+          <input type="text" id="contact" name="contact" ng-model="ngo.contact" required>
+        </div>
+        <div class="form-row">
+          <label for="mission">Missions and Objectives</label>
+          <textarea id="mission" name="mission" ng-model="ngo.mission" required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="resources">Lack of Resources</label>
+          <textarea id="resources" name="resources" ng-model="ngo.resources"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="payment-link">Payment Link</label>
+          <input type="text" id="payment_link" name="payment_link" ng-model="ngo.paymentLink">
+          <label for="website">Link to Website</label>
+          <input type="text" id="website" name="website" ng-model="ngo.website" placeholder="https://www.example.com">
+          <label for="document">Governing Document</label>
+          <input type="file" id="document" name="document" ng-model="ngo.document">
+        <div class="form-actions">
+            <input type="submit" name="save" value="Submit" ng-disabled="registrationForm.$invalid"> 
+        </div>
+      </form>
+      
+    
+    
+      <script>
+        function on() {
+          document.getElementById("overlay-content").style.display = "block";
+        }
+        function off(){
+          document.getElementById("overlay-content").style.display = "none";
+        }
+          var app = angular.module("myApp", []);
+          app.controller("formCtrl", function($scope, $window) {
+              $scope.submitForm = function(isValid) {
+                  if (isValid) {
+                      $window.alert('Form submitted successfully!');
+                      off();
+                  } else {
+                      console.log('Form is invalid');
+                  }
+              };
+          });
+      </script>
+    </div>
+  </div>
+</div> 
+  
+<div class="middle">
+  <div class="quote" data-aos="fade-left">
+      <!--<p class="h1" style="margin-top: -10px;">Quote</p>-->
+      <p class="us" style="font-size: 30px; color: black; margin-top: -20px;">Money is not the only commodity that is fun to give. We can give time, we can give our expertise, we can give our love, or simply give a smile. What does that cost? The point is, none of us can ever run out of something worthwhile to give.</p>
+      <p style="color: black; margin-left: 0%; margin-top: 10px;">~Steve Goodier</p>
+  </div>
+</div>    
+
+
+<div class="work" style="height: 600px;" data-aos="fade-left"><br><p style="font-family: Inter; font-weight: bold; color: white; font-size: 50px; text-align: center;"><b>Our Story!</b></p><hr>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://www.parkshala.com/img/dentalcamp/3.jpg" width="20000" height="8000" alt="Image 1">
+      </div>
+  
+      <div class="item">
+        <img src="https://www.parkshala.com/img/art/2.jpg" width="20000" height="100"alt="Image 2">
+      </div>
+  
+      <div class="item">
+        <img src="http://3.bp.blogspot.com/-VkADn-CAJWo/UMsAWcqZQhI/AAAAAAAADWs/cvKDrujmISo/s1600/467969_398309740213517_836259615_o.jpg" width="20000" height="100" alt="Image 3">
+      </div>
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>  
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<div class="footer">
+  <p style="font-family: Inter; font-size: 15px; font-weight: bold;">Reach out to us</p><br>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <a href="#" class="fa fa-facebook"></a>
+  <a href="#" class="fa fa-twitter"></a>
+  <a href="#" class="fa fa-instagram"></a>
+  <a href="#" class="fa fa-youtube"></a>
+  <a href="#" class="fa fa-linkedin"></a>
+</div>
+
+<div>
+  <p style="font-family: Inter; text-align: center; margin-top: 5px; font-weight: bold; color:white;">&copy; 2023 <a href="homepage.html">Helpify</a> | All Rights Reserved</p>
+</div>
+
+<script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+  
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+  
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";  
+  }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration:1000,
+        delay:400
+    });
+</script>
+</body>
+</html>
+

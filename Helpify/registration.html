@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="registration.css">
+    <link href="//db.onlinewebfonts.com/c/5c803199923a6ed48112bebbb486b3e0?family=Lora" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/750e3658d4460a397a551dfac26bb272?family=Karla" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form>
+
+          <input type="text" id="first-name" name="first-name" placeholder="First name" required>
+
+
+          <!--<input type="text" id="middle-name" name="middle-name" placeholder="Middle name"><br><br>-->
+
+
+          <input type="text" id="last-name" name="last-name" placeholder="Last name" required><br><br>
+
+
+          <select id="user-type" name="user-type" required>
+            <option value="" disabled selected>Select User Type</option>
+            <option value="donor">Donor</option>
+            <option value="ngo">NGO</option>
+            <option value="foster-home">Foster Home</option>
+          </select>
+
+
+          <select id="region" name="region" required>
+            <option value="" disabled selected>Select Region</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="nav-mumbai">Nav Mumbai</option>
+          </select><br><br>
+
+          <input type="tel" id="contact-number" name="contact-number" pattern="[\+][9][1][0-9]{10}" placeholder="Contact Number" required>
+
+          <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required><br><br>
+
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+          
+          <input type="submit" value="Submit">
+          <a href="login.html">
+            <input type="button" value="Back to Login">
+          </a>
+    
+        </form>
+      </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="login+reg.css">
+    <link href="//db.onlinewebfonts.com/c/5c803199923a6ed48112bebbb486b3e0?family=Lora" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/750e3658d4460a397a551dfac26bb272?family=Karla" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/623c7118249e082fe87a78e08506cb4b?family=Segoe+UI" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+      $scope.submitLoginForm = function() {
+          if ($scope.loginForm.$valid) {
+              alert("Logged in successfully!");
+          }
+      };
+  });
+</script>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+      $scope.submitSignForm = function() {
+          if ($scope.SignForm.$valid) {
+              alert("Signed in successfully!");
+          }
+      };
+  });
+</script>
+
+<script>
+
+  function printerror(elemid,hintMsg){
+    document.getElementById(elemid)
+  }
+</script>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="navbar">
+        <nav>
+          <label class="logo">Helpify</label>
+          <ul>
+            <li><a href="homepage.html">About Us</a></li>
+            <li><a href="findngo.html">Find your NGO!</a></li>
+            <li><a href="ngo-ngo.html">NGO-NGO</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a class="active"   href="login+reg.html">Login</a>
+          </ul>
+        </nav>
+      </div>
+
+    <div class="main">
+        <div class="login">
+            <h1>Welcome back!</h1><br><br>
+            <p style="text-align: left; font-family: Karla; margin-left: 50px;">Please sign in to continue your<br> journey with us!</p><br><br>
+            <form name="loginForm" ng-submit="submitLoginForm()" method="post">
+              <label for="username">Username:</label>
+              <input type="text" id="username" placeholder="Email or contact number" style="width: 180px" name="username" ng-model="username" ng-pattern="/^(?:[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}|\d{10,12})$/" required/>
+              <div ng-show="loginForm.username.$error.required && loginForm.username.$dirty">
+                <small class="error" style="color:red;">Username is required.</small>
+              </div>
+              <div ng-show="loginForm.username.$error.pattern && loginForm.username.$dirty">
+                <small class="error" style="color:red;">Please enter a valid email or contact number.</small>
+              </div><br>
+            
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" placeholder="Password" style="width: 180px" ng-model="password" ng-minlength="6" required/>
+              <div ng-show="loginForm.password.$error.required && loginForm.password.$dirty">
+                <small class="error" style="color:red;">Password is required.</small>
+              </div>
+              <div ng-show="loginForm.password.$error.minlength && loginForm.password.$dirty">
+                <small class="error" style="color:red;">Password should be at least 6 characters long.</small>
+              </div>
+            
+              <input type="submit" name='save' value="Sign In">
+            </form> 
+        </div>
+        <div class="vr"></div>
+        <div class="reg">
+            <h1 style="text-align: center;">Create Account</h1>
+            <form action = 'userregistration.php' method='post' name="SignForm" ng-submit="submitSignForm()" novalidate>
+
+                <input type="text" id="first-name" name="first-name" placeholder="First name" ng-pattern="/[a-zA-Z\s]+/"required>
+                
+                <input type="text" id="last-name" name="last-name" placeholder="Last name" required><br><br>
+      
+      
+                <select id="user-type" name="user-type" required>
+                  <option value="" disabled selected>Select User Type</option>
+                  <option value="donor">Donor</option>
+                  <option value="ngo">NGO</option>
+                  <option value="foster-home">Foster Home</option>
+                </select>&nbsp;&nbsp;&nbsp;
+      
+      
+                <select id="region" name="region" onchange="showDropInfo()" required>
+                  <option value="" disabled selected>Select Region</option>
+                  <option value="mumbai">Mumbai City</option>
+                  <option value="suburban">Mumbai Suburban</option>
+                  <option value="thane">Thane</option>
+                  <option value="palghar">Palghar</option>
+                  <option value="raigad">Raigad</option>
+                  </select><p id="pT" style="margin-left: 10px;"></p><br><br>
+
+                <input type="text" name="number" placeholder="Contact">
+                <input type="text" name="email" placeholder="Email">
+                <input type="password" id="password" name="password" placeholder="Password" ng-model="pass" ng-minlength="6" required>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm-Password" required><br>
+                
+                <input type="submit" value="Sign Up" name = 'save' style="margin-left: 17%;">
+              </form>
+        </div>
+    </div>
+
+</body>
+</html>

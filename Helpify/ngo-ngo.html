@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO-NGO!</title>
+    <link href="//db.onlinewebfonts.com/c/5c803199923a6ed48112bebbb486b3e0?family=Lora" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/750e3658d4460a397a551dfac26bb272?family=Karla" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/623c7118249e082fe87a78e08506cb4b?family=Segoe+UI" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="ngo-ngo.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    <div class="navbar">
+        <nav>
+          <label class="logo">Helpify</label>
+          <ul>
+            <li><a href="homepage.html">About Us</a></li>
+            <li><a href="findngo.html">Find your NGO!</a></li>
+            <li><a class="active" href="ngo-ngo.html">NGO-NGO</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="login+reg.html">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    
+    <div class="kids">
+        <img src="https://serudsindia.org/wp-content/uploads/2020/10/children-in-seruds-orphanage-kurnool.jpg" style="width: 100%;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 118%; background-color: rgba(0, 0, 0, 0.5);"></div>
+        <span data-aos="fade-left">Are you running an organisation? <br>Get help with Helpify to support fellow NGOs in need!</span>
+    </div>
+
+        
+      <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" class="search-box" placeholder="Search with keywords" ng-model="lookup" />
+        <div id="ngo-table" class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Organisation Name</th>
+                <th>Lack of Resources</th>
+                <th>Contact Number</th>
+                <th>Website</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="ngo in ngos | filter: lookup">
+                <td>{{ ngo.organisation_name }}</td>
+                <td>{{ ngo.lack_of_resources }}</td>
+                <td>{{ ngo.contact_number }}</td>
+                <td><a href="{{ ngo.website }}">{{ ngo.website }}</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <script>
+    // Define the Angular module
+    var app = angular.module("myApp", []);
+
+    // Define the Angular controller
+    app.controller("myCtrl", function($scope, $http) {
+    $http.get("displayngo-ngo.php")
+        .then(function(response) {
+        $scope.ngos = response.data;
+        });
+    });
+
+      </script>
+
+      
+    <div class="footer">
+        <p style="font-size: extra-large; font-family:'Times New Roman', Times, serif">Reach out to us</p><br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-youtube"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+    </div>
+
+    <div>
+        <p style="font-family: Inter; text-align: center; margin-top: 5px; font-weight: bold; color:black;">&copy; 2023 <a href="homepage.html">Helpify</a> | All Rights Reserved</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+    AOS.init({
+        duration:1000,
+        delay:400
+    });
+    </script>
+</body>
+</html>

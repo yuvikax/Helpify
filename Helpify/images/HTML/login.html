@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MyFootprint - Login</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-7QUQrAdtBaz2QrRGlpO+IcL1hZt1JXOY+90tPwbFtj8pMwLHcS5m5zt/mJb/a8GZfzj2cyC4ZmzGJ1D6UwG6+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <h1 class="logo"><a href="homepage.html"> MyFootprint</h1></a>
+      <nav>
+        <ul>
+          <li><a href="dash.html">Dashboard</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="manualadding.html">Emission calculator</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <form class="form">
+        <h2>MyFootprint</h2>
+        <label for="username"><i class="fas fa-user"></i>Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password"><i class="fas fa-lock"></i>Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        <div class="error"></div>
+      </form>
+    </div>
+  </body>
+</html>
